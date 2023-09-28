@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Button</title>
+    <style>
+        body {
+            transition: background-color 0.1s;
+        }
+
+        h1 {
+            color: red;
+            transition: color 0.1s;
+        }
+
+        .slider-container {
+            display: inline-block;
+            position: relative;
+            width: 70px;
+            height: 35px;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0 ;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.1s;
+            border-radius: 30px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 10px;
+            bottom: 4px;
+            background-color: indianred;
+            transition: 0.5s;
+            border-radius: 50%;
+        }
+
+        input[type="checkbox"] {
+            display: ;
+        }
+
+        input[type="checkbox"]:checked + .slider {
+            background-color: #4CAF50; /* Green color */
+        }
+
+        input[type="checkbox"]:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        input[type="checkbox"]:checked ~ body {
+            background-color: #4CAF50; /* Green color */
+        }
+
+        input[type="checkbox"]:checked ~ h1 {
+            color: green; /* Green color */
+        }
+    </style>
+</head>
+<body>
+    <h1> Antiban ⁐ Bypass Report</h1>
+    <label class="slider-container">
+        <input type="checkbox" id="colorToggle">
+        <span class="slider"></span>
+    </label>
+    <script>
+        const colorToggle = document.getElementById("colorToggle");
+
+        colorToggle.addEventListener("change", function () {
+            if (this.checked) {
+                document.body.style.backgroundColor = "#4CAF50"; // Change background to green
+                document.querySelector("h1").style.color = "green"; // Change heading color to green
+            } else {
+                document.body.style.backgroundColor = ""; // Reset background color
+                document.querySelector("h1").style.color = "red"; // Reset heading color
+            }
+        });
+    </script>
+    <h3>Slide the above button to activate it ⇱</h3>
+</body>
+</html>
